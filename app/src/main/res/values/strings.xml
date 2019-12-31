@@ -15,4 +15,5 @@
     <string name="salary_period_hourly">hourly </string>
     <string name="salary_period_monthly">monthly </string>
     <string name="salary_period_yearly">yearly </string>
+    <string name="currency_output">Target currency </string>
 </resources>

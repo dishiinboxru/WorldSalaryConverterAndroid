@@ -28,7 +28,6 @@
         android:id="@+id/Currency_autocomplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:completionHint="@string/currency_autocomplete_hint"
         android:hint = "@string/currency_autocomplete_hint"
         android:completionThreshold='2'
         android:contentDescription="@string/currency_autocomplete_hint"
