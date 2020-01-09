@@ -27,14 +27,15 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            val currencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_autocomplete).text.toString()
+            var currencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_target_autocomplete).text.toString()
 
-            val salaryValue = view.findViewById<EditText>(R.id.Salary_value_input).text.toString().toInt()
-////            val action2 = FirstFragmentDirections.actionFirstFragmentToSecondFragment(salaryValue)
-////            findNavController().navigate(action2)
-
-            savedInstanceState?.putInt("salary" , salaryValue)
-            savedInstanceState?.putString("currency" , currencyValue)
+            val salaryValue = view.findViewById<EditText>(R.id.Salary_value_input).text.toString()
+////
+            currencyValue.plus(salaryValue)
+//
+//            //Bundle attempt - failed
+//            savedInstanceState?.putInt("salary" , salaryValue)
+//            savedInstanceState?.putString("currency" , currencyValue)
 
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currencyValue)
             findNavController().navigate(action)

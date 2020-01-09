@@ -9,11 +9,13 @@
 
     <string name="hello_first_fragment">Enter salary info here</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="currency_autocomplete_hint">Type currency symbol here</string>
+    <string name="currency_autocomplete_hint">Type offer currency symbol here</string>
+    <string name="currency_target_autocomplete_hint">Type target currency symbol here</string>
     <string name="salary_filed">Type salary amount here </string>
     <string name="salary_period_menu">Choose payroll period </string>
     <string name="salary_period_hourly">hourly </string>
     <string name="salary_period_monthly">monthly </string>
     <string name="salary_period_yearly">yearly </string>
     <string name="currency_output">Target currency </string>
+    <string name="convert_button_title">Convert please </string>
 </resources>

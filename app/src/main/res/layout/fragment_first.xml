@@ -10,32 +10,46 @@
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/convert_button_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payroll_period" />
 
     <TextView
         android:id="@+id/textview_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="@string/hello_first_fragment"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
-        android:id="@+id/Currency_autocomplete"
+        android:id="@+id/Currency_offer_autocomplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint = "@string/currency_autocomplete_hint"
+        android:layout_marginTop="24dp"
         android:completionThreshold='2'
         android:contentDescription="@string/currency_autocomplete_hint"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        android:hint="@string/currency_autocomplete_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_first" />
+
+    <AutoCompleteTextView
+        android:id="@+id/Currency_target_autocomplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:completionThreshold='2'
+        android:contentDescription="@string/currency_target_autocomplete_hint"
+        android:hint="@string/currency_target_autocomplete_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Currency_offer_autocomplete" />
 
     <EditText
         android:id="@+id/Salary_value_input"
@@ -45,40 +59,114 @@
         android:ems="10"
         android:hint="@string/salary_filed"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Currency_autocomplete" />
+        app:layout_constraintTop_toBottomOf="@+id/Currency_target_autocomplete" />
 
     <RadioGroup
         android:id="@+id/payroll_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Salary_value_input">
 
         <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sound"
-        android:text="@string/salary_period_hourly" />
+            android:id="@+id/sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/salary_period_hourly" />
 
         <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/vibration"
-        android:text="@string/salary_period_monthly" />
+            android:id="@+id/vibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/salary_period_monthly" />
 
         <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/silent"
-        android:text="@string/salary_period_yearly" />
+            android:id="@+id/silent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/salary_period_yearly" />
 
     </RadioGroup>
 
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="231dp"
+        android:layout_height="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_first">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="@string/salary_period_hourly"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/target_hourly_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="@string/salary_period_monthly"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="@string/salary_period_yearly"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="@string/currency_output"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/target_currency"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+        </TableRow>
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

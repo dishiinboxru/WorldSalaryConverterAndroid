@@ -20,12 +20,13 @@
         android:id="@+id/textview_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="354dp"
         android:layout_height="448dp"
         app:layout_constraintBottom_toBottomOf="parent"
