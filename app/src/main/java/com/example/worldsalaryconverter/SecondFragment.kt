@@ -31,15 +31,15 @@ class SecondFragment : Fragment() {
         view.findViewById<TextView>(R.id.textview_second).text =
                 getString(R.string.hello_second_fragment, args.myArg)
 
-        val currency = savedInstanceState?.getString("currency")
-        val salary = savedInstanceState?.getInt("salary")
-
-        view.findViewById<TextView>(R.id.target_currency).text = currency.toString()
-        view.findViewById<TextView>(R.id.target_hourly_salary).text = currency.toString()
-
-
-        view.findViewById<Button>(R.id.button_second).setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+//        val currency = savedInstanceState?.getString("currency")
+//        val salary = savedInstanceState?.getInt("salary")
+//
+//        view.findViewById<TextView>(R.id.target_currency_output).text = currency.toString()
+//        view.findViewById<TextView>(R.id.target_hourly_salary).text = currency.toString()
+//
+//
+//        view.findViewById<Button>(R.id.button_second).setOnClickListener {
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        }
     }
 }

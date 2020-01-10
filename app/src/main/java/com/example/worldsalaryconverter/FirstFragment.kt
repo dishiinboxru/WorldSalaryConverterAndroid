@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 
 /**
@@ -26,19 +27,37 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //setting action upon Convert Please button
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            var currencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_target_autocomplete).text.toString()
-
-            val salaryValue = view.findViewById<EditText>(R.id.Salary_value_input).text.toString()
-////
-            currencyValue.plus(salaryValue)
-//
-//            //Bundle attempt - failed
-//            savedInstanceState?.putInt("salary" , salaryValue)
-//            savedInstanceState?.putString("currency" , currencyValue)
-
-            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currencyValue)
-            findNavController().navigate(action)
+            convertMe(view)
         }
     }
-}
+
+        fun convertMe (view: View){
+            //getting input data
+            val currencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_target_autocomplete).text
+
+            val salaryValue = view.findViewById<EditText>(R.id.Salary_value_input).text
+
+            // populating target table
+
+            view.findViewById<EditText>(R.id.target_currency_output).text = currencyValue
+            view.findViewById<EditText>(R.id.target_hourly_salary).text=salaryValue
+        }
+
+        //example from 2nd app
+//
+//        view.findViewById<Button>(R.id.count_button).setOnClickListener{
+//            countMe(view)
+//        }
+//    }
+//
+//    fun countMe (view: View){
+//        val showCountTextView = view.findViewById<TextView>(R.id.textView_count)
+//        val countString = showCountTextView.text.toString()
+//        var count: Int = Integer.parseInt(countString)
+//        count++
+//        showCountTextView.text = count.toString()
+//    }
+    }
+
