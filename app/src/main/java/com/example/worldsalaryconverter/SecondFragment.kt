@@ -29,7 +29,7 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<TextView>(R.id.textview_second).text =
-                getString(R.string.hello_second_fragment, args.myArg)
+                getString(R.string.second_fragment_intro, args.myArg)
 
 //        val currency = savedInstanceState?.getString("currency")
 //        val salary = savedInstanceState?.getInt("salary")
