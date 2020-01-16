@@ -1,5 +1,6 @@
 package com.example.worldsalaryconverter
 
+import android.app.DownloadManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_first.*
 import org.json.JSONObject
 import java.net.URL
+import javax.xml.transform.dom.DOMLocator
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -31,32 +33,21 @@ class FirstFragment : Fragment() {
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
            // convertMe(view)
 
-            val targetCurrencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_target_autocomplete).text
+            val targetCurrencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_target_autocomplete).text.toString()
 
-            val inputCurrencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_offer_autocomplete).text
+            val inputCurrencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_offer_autocomplete).text.toString()
 
             val salaryValue = view.findViewById<EditText>(R.id.Salary_value_input).text.toString().toDouble()
 
             //TODO - add proper requst via API for exchange rate
-            val exchangeRate = 2
+            val exchangeRate :Double = fetchExchangeRate( inputCurrencyValue, targetCurrencyValue)
 
-            //snippets to connect
-            var response = try {
-                URL("http://google.co.uk")
-                    .openStream()
-                    .bufferedReader()
-                    .use { it.readText() }
 
-                    //snippet to work with JSON
-            val obj : JSONObject = response.jsonObject
-                print(obj["Target currency"])
-
-            // yet hardcode, later implement a switch
             var paymentPeriodMode : Double = 1.0
             var id = payroll_period.checkedRadioButtonId
            // val radio: RadioButton = findViewById<RadioButton>(id) //TODO - currently it's working, but solutions is awful , should find a better way to get those ids
             if (id == 2131230846){
-                 paymentPeriodMode = 800.0
+                 paymentPeriodMode = 160.0
             }
             if (id == 2131230866){
                 paymentPeriodMode = 1.0
@@ -78,8 +69,6 @@ class FirstFragment : Fragment() {
             val currencyValue = view.findViewById<AutoCompleteTextView>(R.id.Currency_target_autocomplete).text
 
             val salaryValue = view.findViewById<EditText>(R.id.Salary_value_input).text
-
-
         }
 
         //example from 2nd app
@@ -96,5 +85,32 @@ class FirstFragment : Fragment() {
 //        count++
 //        showCountTextView.text = count.toString()
 //    }
+
+    fun fetchExchangeRate( inputCurrencyValue : String , targetCurrencyValue : String) : Double{
+    var exchangeRate : Double
+
+
+        //here we are supposed to request API
+//        val url = "https://api.exchangeratesapi.io/latest?base=USD"
+//
+//        val response = URL(url).openStream().bufferedReader().toString()
+
+        //snippets to connect
+//            var response = try {
+//                URL("http://google.co.uk")
+//                    .openStream()
+//                    .bufferedReader()
+//                    .use { it.readText() }
+
+        //snippet to work with JSON
+//            val obj : JSONObject = response.jsonObject
+//                print(obj["Target currency"])
+
+        //but yet we just hardcode stuff for USD to RUB
+        exchangeRate = 60.0
+
+        return exchangeRate
+    }
+
     }
 
