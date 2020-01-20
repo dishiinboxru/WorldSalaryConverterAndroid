@@ -1,6 +1,5 @@
 package com.example.worldsalaryconverter
 
-import android.app.DownloadManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_first.*
-import org.json.JSONObject
-import java.net.URL
-import javax.xml.transform.dom.DOMLocator
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -87,7 +83,35 @@ class FirstFragment : Fragment() {
 //    }
 
     fun fetchExchangeRate( inputCurrencyValue : String , targetCurrencyValue : String) : Double{
-    var exchangeRate : Double
+    var exchangeRate : Double = 0.0
+
+        var firstCurrency :Double
+        var secondCurrency : Double
+
+        var inputCurrencySymbol = inputCurrencyValue.toLowerCase()
+        var targetCurrencySymbol = targetCurrencyValue.toLowerCase()
+
+       //TODO - replace if-s with API requests
+        //from rubles
+        if (inputCurrencySymbol.equals("rub") && targetCurrencySymbol.equals("usd")){
+            exchangeRate = 0.016
+        }
+        if (inputCurrencySymbol.equals("rub") && targetCurrencySymbol.equals("eur")){
+            exchangeRate = 0.015
+        }
+        if (inputCurrencySymbol.equals("rub") && targetCurrencySymbol.equals("gbp")){
+            exchangeRate = 0.013
+        }
+        //to rubles
+        if (inputCurrencySymbol.equals("usd") && targetCurrencySymbol.equals("rub")){
+            exchangeRate = 61.0
+        }
+        if (inputCurrencySymbol.equals("eur") && targetCurrencySymbol.equals("rub")){
+            exchangeRate = 68.0
+        }
+        if (inputCurrencySymbol.equals("gbp") && targetCurrencySymbol.equals("rub")){
+            exchangeRate = 79.8
+        }
 
 
         //here we are supposed to request API
@@ -107,7 +131,7 @@ class FirstFragment : Fragment() {
 //                print(obj["Target currency"])
 
         //but yet we just hardcode stuff for USD to RUB
-        exchangeRate = 60.0
+        //exchangeRate = 60.0
 
         return exchangeRate
     }
