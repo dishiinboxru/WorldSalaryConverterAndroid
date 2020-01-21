@@ -1,13 +1,18 @@
 package com.example.worldsalaryconverter
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Button
+import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_first.*
+import sun.jvm.hotspot.utilities.IntArray
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -18,12 +23,27 @@ class FirstFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //populating autocomplete fields
+        // Get a reference to the AutoCompleteTextView in the layout
+        val textViewOfferCurrency = view.findViewById<AutoCompleteTextView>(R.id.Currency_offer_autocomplete)
+    // Get the string array
+        val currencies: List<String> = resources.getStringArray(R.array.currencies_array).toList()
+    // Create the adapter and set it to the AutoCompleteTextView
+//       val adapter : ArrayAdapter<String> = ArrayAdapter<String>(this , android.R.layout.simple_list_item_1, currencies)
+        val context = this
+
+        ArrayAdapter<String>(context , android.R.layout.simple_list_item_1, currencies).also { adapter ->
+            textViewOfferCurrency.setAdapter(adapter)
+        }
 
         //setting action upon Convert Please button
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
@@ -135,6 +155,5 @@ class FirstFragment : Fragment() {
 
         return exchangeRate
     }
-
-    }
+}
 
