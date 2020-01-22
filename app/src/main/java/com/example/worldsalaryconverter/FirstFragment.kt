@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_first.*
-import sun.jvm.hotspot.utilities.IntArray
+
 
 
 /**
@@ -35,14 +32,19 @@ class FirstFragment : Fragment() {
         //populating autocomplete fields
         // Get a reference to the AutoCompleteTextView in the layout
         val textViewOfferCurrency = view.findViewById<AutoCompleteTextView>(R.id.Currency_offer_autocomplete)
+        val textViewTargetCurrency = view.findViewById<AutoCompleteTextView>(R.id.Currency_target_autocomplete)
     // Get the string array
         val currencies: List<String> = resources.getStringArray(R.array.currencies_array).toList()
     // Create the adapter and set it to the AutoCompleteTextView
 //       val adapter : ArrayAdapter<String> = ArrayAdapter<String>(this , android.R.layout.simple_list_item_1, currencies)
-        val context = this
+
 
         ArrayAdapter<String>(context , android.R.layout.simple_list_item_1, currencies).also { adapter ->
             textViewOfferCurrency.setAdapter(adapter)
+        }
+        //TODO - obvious duplication, don't know how to optimise yet
+        ArrayAdapter<String>(context , android.R.layout.simple_list_item_1, currencies).also { adapter ->
+            textViewTargetCurrency.setAdapter(adapter)
         }
 
         //setting action upon Convert Please button
@@ -61,16 +63,35 @@ class FirstFragment : Fragment() {
 
             var paymentPeriodMode : Double = 1.0
             var id = payroll_period.checkedRadioButtonId
-           // val radio: RadioButton = findViewById<RadioButton>(id) //TODO - currently it's working, but solutions is awful , should find a better way to get those ids
-            if (id == 2131230846){
-                 paymentPeriodMode = 160.0
-            }
-            if (id == 2131230866){
-                paymentPeriodMode = 1.0
-            }
-            if (id == 2131230985) {
-                 paymentPeriodMode = 0.08333
-            }
+
+            val paymentPeriodGroup = view.findViewById<RadioGroup>(R.id.payroll_period)
+
+            paymentPeriodGroup.setOnCheckedChangeListener(
+                RadioGroup.OnCheckedChangeListener { group, checkedId ->
+
+                    val option = view.findViewById<RadioButton>(checkedId).text
+                    if (option.equals("hourly")){
+                        paymentPeriodMode = 160.0
+                    }
+                    if (option.equals("monthly")){
+                        paymentPeriodMode = 1.0
+                    }
+                    if (option.equals("yearly")) {
+                        paymentPeriodMode = 0.08333
+                    }
+                })
+
+
+            // val radio: RadioButton = findViewById<RadioButton>(id) //TODO - currently it's working, but solutions is awful , should find a better way to get those ids
+//            if (id == 2131230846){
+//                 paymentPeriodMode = 160.0
+//            }
+//            if (id == 2131230866){
+//                paymentPeriodMode = 1.0
+//            }
+//            if (id == 2131230985) {
+//                 paymentPeriodMode = 0.08333
+//            }
 
             var targetSalary =(salaryValue * paymentPeriodMode * exchangeRate).toString() // outcommented for debugging
 
