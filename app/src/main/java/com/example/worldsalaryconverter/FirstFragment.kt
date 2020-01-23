@@ -61,37 +61,20 @@ class FirstFragment : Fragment() {
             val exchangeRate :Double = fetchExchangeRate( inputCurrencyValue, targetCurrencyValue)
 
 
-            var paymentPeriodMode : Double = 1.0
+            var paymentPeriodMode : Double = 1.0 //default to monthly
             var id = payroll_period.checkedRadioButtonId
 
-            val paymentPeriodGroup = view.findViewById<RadioGroup>(R.id.payroll_period)
+            val paymentPeriodButton = view.findViewById<RadioButton>(id).text
 
-            paymentPeriodGroup.setOnCheckedChangeListener(
-                RadioGroup.OnCheckedChangeListener { group, checkedId ->
-
-                    val option = view.findViewById<RadioButton>(checkedId).text
-                    if (option.equals("hourly")){
-                        paymentPeriodMode = 160.0
-                    }
-                    if (option.equals("monthly")){
-                        paymentPeriodMode = 1.0
-                    }
-                    if (option.equals("yearly")) {
-                        paymentPeriodMode = 0.08333
-                    }
-                })
-
-
-            // val radio: RadioButton = findViewById<RadioButton>(id) //TODO - currently it's working, but solutions is awful , should find a better way to get those ids
-//            if (id == 2131230846){
-//                 paymentPeriodMode = 160.0
-//            }
-//            if (id == 2131230866){
-//                paymentPeriodMode = 1.0
-//            }
-//            if (id == 2131230985) {
-//                 paymentPeriodMode = 0.08333
-//            }
+            if (paymentPeriodButton.equals("hourly")){
+                paymentPeriodMode = 160.0
+            }
+            if (paymentPeriodButton.equals("monthly")){
+                paymentPeriodMode = 1.0
+            }
+            if (paymentPeriodButton.equals("yearly")) {
+                paymentPeriodMode = 0.08333
+            }
 
             var targetSalary =(salaryValue * paymentPeriodMode * exchangeRate).toString() // outcommented for debugging
 
@@ -107,21 +90,6 @@ class FirstFragment : Fragment() {
 
             val salaryValue = view.findViewById<EditText>(R.id.Salary_value_input).text
         }
-
-        //example from 2nd app
-//
-//        view.findViewById<Button>(R.id.count_button).setOnClickListener{
-//            countMe(view)
-//        }
-//    }
-//
-//    fun countMe (view: View){
-//        val showCountTextView = view.findViewById<TextView>(R.id.textView_count)
-//        val countString = showCountTextView.text.toString()
-//        var count: Int = Integer.parseInt(countString)
-//        count++
-//        showCountTextView.text = count.toString()
-//    }
 
     fun fetchExchangeRate( inputCurrencyValue : String , targetCurrencyValue : String) : Double{
     var exchangeRate : Double = 0.0
