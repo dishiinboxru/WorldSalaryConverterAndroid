@@ -25,80 +25,80 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="354dp"
-        android:layout_height="448dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <TableLayout-->
+<!--        android:id="@+id/tableLayout"-->
+<!--        android:layout_width="354dp"-->
+<!--        android:layout_height="448dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="@string/salary_period_hourly"
-                android:textSize="24sp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_column="1"-->
+<!--                android:text="@string/salary_period_hourly"-->
+<!--                android:textSize="24sp" />-->
 
-            <TextView
-                android:id="@+id/target_hourly_salary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:textSize="24sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/target_hourly_salary"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_column="1"-->
+<!--                android:textSize="24sp" />-->
 
-        </TableRow>
+<!--        </TableRow>-->
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="@string/salary_period_monthly"
-                android:textSize="24sp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_column="1"-->
+<!--                android:text="@string/salary_period_monthly"-->
+<!--                android:textSize="24sp" />-->
 
-        </TableRow>
+<!--        </TableRow>-->
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="@string/salary_period_yearly"
-                android:textSize="24sp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_column="1"-->
+<!--                android:text="@string/salary_period_yearly"-->
+<!--                android:textSize="24sp" />-->
 
-        </TableRow>
+<!--        </TableRow>-->
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="@string/currency_output"
-                android:textSize="24sp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_column="1"-->
+<!--                android:text="@string/currency_output"-->
+<!--                android:textSize="24sp" />-->
 
-            <TextView
-                android:id="@+id/target_currency_output"
-                android:layout_width="76dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:textAlignment="center"
-                android:textSize="24sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/target_currency_output"-->
+<!--                android:layout_width="76dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_column="1"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="24sp" />-->
 
-        </TableRow>
-    </TableLayout>
+<!--        </TableRow>-->
+<!--    </TableLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
