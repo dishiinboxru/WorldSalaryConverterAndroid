@@ -9,7 +9,7 @@
 
     <string name="hello_first_fragment">Enter salary info below</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="second_fragment_intro">Your converted salary is . Arg: %1$s</string>
+    <string name="second_fragment_intro">Your converted salary equals monthly: %1$s</string>
 
     <string name="currency_autocomplete_hint">Type offer currency symbol here</string>
     <string name="currency_target_autocomplete_hint">Type target currency symbol here</string>

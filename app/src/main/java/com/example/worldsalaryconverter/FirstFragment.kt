@@ -109,17 +109,17 @@ class FirstFragment : Fragment() {
             exchangeRate = 0.015
         }
         if (inputCurrencySymbol.equals("rub") && targetCurrencySymbol.equals("gbp")){
-            exchangeRate = 0.013
+            exchangeRate = 0.012
         }
         //to rubles
         if (inputCurrencySymbol.equals("usd") && targetCurrencySymbol.equals("rub")){
-            exchangeRate = 61.0
+            exchangeRate = 62.7
         }
         if (inputCurrencySymbol.equals("eur") && targetCurrencySymbol.equals("rub")){
-            exchangeRate = 68.0
+            exchangeRate = 69.0
         }
         if (inputCurrencySymbol.equals("gbp") && targetCurrencySymbol.equals("rub")){
-            exchangeRate = 79.8
+            exchangeRate = 81.5
         }
 
 
